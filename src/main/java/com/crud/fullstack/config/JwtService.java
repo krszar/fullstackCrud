@@ -12,6 +12,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
+    //secret key
     private static final String KEY = "38782F413F4428472B4B6250655368566D597133743677397A24422645294840";
 
     public String extractNick(String jwt){
