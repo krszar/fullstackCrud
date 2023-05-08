@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Map;
 import java.util.function.Function;
 
 @Service
@@ -17,6 +18,8 @@ public class JwtService {
     public String extractNick(String jwt){
         return extractClaims(jwt).getSubject();
     }
+
+    public String generateToken(Map<String, Object> e)
 
 
 
