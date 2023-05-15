@@ -48,8 +48,11 @@ public class SecurityConfig extends OncePerRequestFilter {
            UserDetails userDetails = userRepository.findByEmail(userEmail);
 
           if (jwtService.tokenValid(jwt, userDetails)){
-            UsernamePasswordAuthenticationToken aToken = new UsernamePasswordAuthenticationToken(userDetails, null,
-              userDetails.getAuthorities());
+            UsernamePasswordAuthenticationToken aToken = new UsernamePasswordAuthenticationToken(
+              userDetails,
+              null,
+              userDetails.getAuthorities()
+            );
             aToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
             SecurityContextHolder.getContext().setAuthentication(aToken);
