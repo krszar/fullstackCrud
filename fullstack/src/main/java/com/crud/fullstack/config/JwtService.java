@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
-import java.util.Map;
-import java.util.function.Function;
 
 @Service
 public class JwtService {
@@ -23,10 +21,10 @@ public class JwtService {
     }
 
 
-    public String generateToken(Map<String, Object> eClaims, UserDetails userDetails){
+    public String generateToken(UserDetails userDetails){
       return Jwts
         .builder()
-        .setClaims(eClaims)
+//        .setClaims(eClaims)
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + 1000*60*60*24))

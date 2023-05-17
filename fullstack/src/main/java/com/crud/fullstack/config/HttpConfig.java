@@ -25,7 +25,7 @@ public class HttpConfig {
     return httpSecurity
       .csrf().disable()
       .authorizeHttpRequests()
-        .requestMatchers("").permitAll()
+        .requestMatchers("**").permitAll()
         .anyRequest().authenticated()
       .and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

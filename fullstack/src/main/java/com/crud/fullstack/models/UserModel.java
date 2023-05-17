@@ -1,25 +1,24 @@
 package com.crud.fullstack.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 @AllArgsConstructor
+@Builder
 @Getter
 @Setter
 @Entity
+@Data
 @Table(name = "users")
 @NoArgsConstructor
-public class UserModel implements UserDetails {
+public class UserModel implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String username;
     private String email;
     private String password;
@@ -28,6 +27,8 @@ public class UserModel implements UserDetails {
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return null;
   }
+
+
 
   @Override
   public boolean isAccountNonExpired() {
@@ -49,3 +50,4 @@ public class UserModel implements UserDetails {
     return false;
   }
 }
+
